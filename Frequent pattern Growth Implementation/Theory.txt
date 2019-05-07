@@ -1,0 +1,54 @@
+2. k-means
+What does it do? k-means creates k groups from a set of objects so that the members of a group are more similar. It’s a popular cluster analysis technique for exploring a dataset.
+
+Hang on, what’s cluster analysis? Cluster analysis is a family of algorithms designed to form groups such that the group members are more similar versus non-group members. Clusters and groups are synonymous in the world of cluster analysis.
+
+Is there an example of this? Definitely, suppose we have a dataset of patients. In cluster analysis, these would be called observations. We know various things about each patient like age, pulse, blood pressure, VO2max, cholesterol, etc. This is a vector representing the patient.
+
+Look:
+
+You can basically think of a vector as a list of numbers we know about the patient. This list can also be interpreted as coordinates in multi-dimensional space. Pulse can be one dimension, blood pressure another dimension and so forth.
+
+You might be wondering:
+
+Given this set of vectors, how do we cluster together patients that have similar age, pulse, blood pressure, etc?
+
+Want to know the best part?
+
+You tell k-means how many clusters you want. K-means takes care of the rest.
+
+How does k-means take care of the rest? k-means has lots of variations to optimize for certain types of data.
+
+At a high level, they all do something like this:
+
+k-means picks points in multi-dimensional space to represent each of the k clusters. These are called centroids.
+Every patient will be closest to 1 of these k centroids. They hopefully won’t all be closest to the same one, so they’ll form a cluster around their nearest centroid.
+What we have are k clusters, and each patient is now a member of a cluster.
+k-means then finds the center for each of the k clusters based on its cluster members (yep, using the patient vectors!).
+This center becomes the new centroid for the cluster.
+Since the centroid is in a different place now, patients might now be closer to other centroids. In other words, they may change cluster membership.
+Steps 2-6 are repeated until the centroids no longer change, and the cluster memberships stabilize. This is called convergence.
+Is this supervised or unsupervised? It depends, but most would classify k-means as unsupervised. Other than specifying the number of clusters, k-means “learns” the clusters on its own without any information about which cluster an observation belongs to. k-means can be semi-supervised.
+
+Why use k-means? I don’t think many will have an issue with this:
+
+The key selling point of k-means is its simplicity. Its simplicity means it’s generally faster and more efficient than other algorithms, especially over large datasets.
+
+It gets better:
+
+k-means can be used to pre-cluster a massive dataset followed by a more expensive cluster analysis on the sub-clusters. k-means can also be used to rapidly “play” with k and explore whether there are overlooked patterns or relationships in the dataset.
+
+It’s not all smooth sailing:
+
+Two key weaknesses of k-means are its sensitivity to outliers, and its sensitivity to the initial choice of centroids. One final thing to keep in mind is k-means is designed to operate on continuous data — you’ll need to do some tricks to get it to work on discrete data.
+
+Where is it used? A ton of implementations for k-means clustering are available online:
+
+Apache Mahout
+Julia
+R
+SciPy
+Weka
+MATLAB
+SAS
+If decision trees and clustering didn’t impress you, you’re going to love the next algorithm.
